@@ -1,12 +1,12 @@
 Summary:	SELinux policy generation scripts and tools
 Summary(pl):	Skrypty i narzêdzia do generowania polityk SELinuksa
 Name:		polgen
-Version:	0.8
+Version:	0.9
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.nsa.gov/selinux/archives/%{name}-%{version}.tgz
-# Source0-md5:	a82915017d1f0e0058501185fcf11619
+# Source0-md5:	4e0cea86ee6edbe1df8e9423729f4713
 Patch0:		%{name}-info.patch
 URL:		http://www.nsa.gov/selinux/
 BuildRequires:	flex
