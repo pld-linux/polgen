@@ -9,6 +9,7 @@ Source0:	http://www.nsa.gov/selinux/archives/%{name}-%{version}.tgz
 # Source0-md5:	a82915017d1f0e0058501185fcf11619
 Patch0:		%{name}-info.patch
 URL:		http://www.nsa.gov/selinux/
+BuildRequires:	flex
 BuildRequires:	libselinux-devel
 BuildRequires:	texinfo
 # contains SELinux-enhanced version of strace
@@ -51,6 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README doc/polgen.html
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
-%{py_sitedir}/%{name}
+%{py_sitescriptdir}/%{name}
 %{_mandir}/man1/*
 %{_infodir}/*.info*
