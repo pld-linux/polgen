@@ -11,7 +11,10 @@ Patch0:		%{name}-info.patch
 URL:		http://www.nsa.gov/selinux/
 BuildRequires:	flex
 BuildRequires:	libselinux-devel
+BuildRequires:	python-devel
+BuildRequires:	python-modules
 BuildRequires:	texinfo
+%pyrequires_eq	python-libs
 # contains SELinux-enhanced version of strace
 Obsoletes:	strace
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
