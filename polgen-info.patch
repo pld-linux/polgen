@@ -1,15 +1,14 @@
---- polgen-0.8/doc/polgen.texi.orig	2004-11-01 22:06:30.000000000 +0100
-+++ polgen-0.8/doc/polgen.texi	2004-11-06 21:06:36.571819960 +0100
-@@ -19,10 +19,9 @@
+--- polgen-0.9/doc/polgen.texi.orig	2004-12-20 15:26:44.000000000 +0100
++++ polgen-0.9/doc/polgen.texi	2005-01-08 18:50:27.512359712 +0100
+@@ -19,9 +19,9 @@
  @end quotation
  @end copying
  
 -@dircategory SELinux Administration
 +@dircategory Miscellaneous:
  @direntry
--* polgen: Running tools to generate SELinux policy based on patterns
--  recognized in program behavior.
-+* polgen: (polgen).			Generate SELinux policy based on patterns recognized in program behavior
+-* polgen: (polgen)Quick Start.    Generate SELinux policy.
++* polgen: (polgen)Quick Start.		Generate SELinux policy
  @end direntry
  
  @c  This title page illustrates only one of the
