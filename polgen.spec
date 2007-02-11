@@ -1,14 +1,14 @@
 Summary:	SELinux policy generation scripts and tools
 Summary(pl):	Skrypty i narzêdzia do generowania polityk SELinuksa
 Name:		polgen
-Version:	1.3
+Version:	1.4
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
-Source0:	http://www.mitre.org/tech/selinux/%{name}-%{version}-src.tar.gz
-# Source0-md5:	a1857eb58ea6f2485bb1f6cddce6977f
+Source0:	http://dl.sourceforge.net/polgen/%{name}-%{version}.tar.gz
+# Source0-md5:	81c53ecf7d7f3901c3f3778708f267fa
 Patch0:		%{name}-info.patch
-URL:		http://www.nsa.gov/selinux/
+URL:		http://polgen.sourceforge.net/
 BuildRequires:	flex
 BuildRequires:	libselinux-devel
 BuildRequires:	python-devel
@@ -56,5 +56,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{py_sitescriptdir}/%{name}
-%{_mandir}/man1/*
+%{_mandir}/man[18]/*
 %{_infodir}/*.info*
