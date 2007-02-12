@@ -1,5 +1,5 @@
 Summary:	SELinux policy generation scripts and tools
-Summary(pl):	Skrypty i narzêdzia do generowania polityk SELinuksa
+Summary(pl.UTF-8):   Skrypty i narzÄ™dzia do generowania polityk SELinuksa
 Name:		polgen
 Version:	1.4
 Release:	1
@@ -23,8 +23,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 polgen is a collection of scripts and tools developed by the MITRE
 corporation to automate the SELinux policy generation process.
 
-%description -l pl
-polgen to zestaw skryptów i narzêdzi stworzonych przez firmê MITRE w
+%description -l pl.UTF-8
+polgen to zestaw skryptÃ³w i narzÄ™dzi stworzonych przez firmÄ™ MITRE w
 celu zautomatyzowania procesu generowania polityk SELinuksa.
 
 %prep
