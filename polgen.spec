@@ -1,5 +1,5 @@
 Summary:	SELinux policy generation scripts and tools
-Summary(pl.UTF-8):   Skrypty i narzędzia do generowania polityk SELinuksa
+Summary(pl.UTF-8):	Skrypty i narzędzia do generowania polityk SELinuksa
 Name:		polgen
 Version:	1.4
 Release:	1
