@@ -11,7 +11,6 @@ Patch0:		%{name}-info.patch
 URL:		http://polgen.sourceforge.net/
 BuildRequires:	audit-libs-devel
 BuildRequires:	flex
-BuildRequires:	libselinux-devel
 BuildRequires:	python-devel
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
