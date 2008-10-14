@@ -2,7 +2,7 @@ Summary:	SELinux policy generation scripts and tools
 Summary(pl.UTF-8):	Skrypty i narzędzia do generowania polityk SELinuksa
 Name:		polgen
 Version:	2.0
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/polgen/%{name}-%{version}.tar.gz
