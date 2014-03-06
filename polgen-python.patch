@@ -1,0 +1,81 @@
+--- polgen-2.0/src/patterns/gen.py.orig	2014-03-06 17:31:16.245761049 +0100
++++ polgen-2.0/src/patterns/gen.py	2014-03-06 17:29:22.942432472 +0100
+@@ -21,13 +21,13 @@
+         self.recognizer = pattern
+         self.nbr = nbr
+         self.justification = justification
+-        self.with = coll_structs
++        self.with_ = coll_structs
+     def __repr__(self):
+         nm = self.pattern_role
+         if nm == "obj":
+             nm = self.recognizer.focus_name
+         with_text = ""
+-        if not empty(self.with):
++        if not empty(self.with_):
+             with_text = " with ..."
+         return "<" + self.focus.name + " is " + nm + with_text + ">"
+ 
+@@ -92,7 +92,7 @@
+     """ e.g., subsystem = subsystem_items.keys()"""
+     write_code(strm, level, label  + " = " + items + ".keys()")
+     process_attachment(strm, level, label, parentlabel, specname)
+-    for n in collaborator.with:
++    for n in collaborator.with_:
+         process_collaborator(strm, level + 1, n, specname, label)
+ 
+ def process_cascade (strm, level, collaborator, label, items, \
+@@ -107,20 +107,20 @@
+     write_code(strm, level + 1, player + \
+                " = Player(" + label + ", '" + label + "', -1," + \
+                specname + "," + label + "__evidence, {})")
+-    coll_names = [s.get_label() for s in collaborator.with]
++    coll_names = [s.get_label() for s in collaborator.with_]
+     write_code(strm, level + 1, label + "_coll_names = " + str(coll_names))
+-    for n in collaborator.with:
++    for n in collaborator.with_:
+         process_collaborator(strm, level + 1, n, specname, label)
+-    write_code(strm, level + 1, "if empty(setdiff(" + label + "_coll_names," + label + "Player.with.keys())):")
+-    write_code(strm, level + 2, "dict_put(" + parentlabel + "Player.with,'" + label + "'," + player + ")")
++    write_code(strm, level + 1, "if empty(setdiff(" + label + "_coll_names," + label + "Player.with_.keys())):")
++    write_code(strm, level + 2, "dict_put(" + parentlabel + "Player.with_,'" + label + "'," + player + ")")
+ 
+ def process_attachment (strm, level, label, parentlabel, specname):
+     """ writes the following sample text
+         subsystem_aggr = make_aggr("subsystem", pattern, subsystem_items)
+-        objPlayer.with.append(subsystem_aggr)"""
++        objPlayer.with_.append(subsystem_aggr)"""
+     aggr = label + "__aggr"
+     items = label + "__items"
+-    above = "dict_put(" + parentlabel + "Player.with,'" + label + "'," + aggr + ")"
++    above = "dict_put(" + parentlabel + "Player.with_,'" + label + "'," + aggr + ")"
+     write_code(strm, level, aggr + " = make_aggr('" + label + "'," + specname + "," + items + ")")
+     write_code(strm, level, above)
+ 
+@@ -172,7 +172,7 @@
+         strColl = "Player"
+         if ty == "set": strColl = "__aggr"
+     write_code(strm, 2, "#if collaborators, then add to found set")
+-    write_code(strm, 2, "if empty(setdiff(obj_coll_names, objPlayer.with.keys())):")
++    write_code(strm, 2, "if empty(setdiff(obj_coll_names, objPlayer.with_.keys())):")
+     write_code(strm, 3, "nbr = nbr + 1")
+     write_code(strm, 3, "objPlayer.nbr = nbr")
+     write_code(strm, 3, "prgm.pattern_instances['" + specname + "'].append(objPlayer)")
+@@ -196,5 +196,5 @@
+         print get_collabs(eval(pt))
+ 
+ def get_collabs_aux(recogObj):
+-    next = flatten([get_collabs_aux(s) for s in recogObj.with])
++    next = flatten([get_collabs_aux(s) for s in recogObj.with_])
+     return [recogObj] + next
+--- polgen-2.0/src/patterns/recog_domain.py.orig	2007-08-07 15:53:25.000000000 +0200
++++ polgen-2.0/src/patterns/recog_domain.py	2014-03-06 17:30:19.779096753 +0100
+@@ -33,7 +33,7 @@
+     """ Recogs are used in creating specifications for the participants in patterns"""
+     def __init__(self, collectorstr, collaborators = [], stoppers = []):
+         self.collector = collectorstr.split()
+-        self.with = collaborators # a set of Recog's
++        self.with_ = collaborators # a set of Recog's
+         self.stoppers = stoppers
+ 
+     def get_label (self):

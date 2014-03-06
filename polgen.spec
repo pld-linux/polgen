@@ -8,6 +8,7 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/polgen/%{name}-%{version}.tar.gz
 # Source0-md5:	ff3124ab7b1acc6a6854e9c377d3f981
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-python.patch
 URL:		http://polgen.sourceforge.net/
 BuildRequires:	audit-libs-devel
 BuildRequires:	flex
@@ -31,6 +32,7 @@ celu zautomatyzowania procesu generowania polityk SELinuksa.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %configure
@@ -47,10 +49,10 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p	/sbin/postshell
+%post	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p	/sbin/postshell
+%postun	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
@@ -63,4 +65,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/spar
 %{_datadir}/%{name}
 %{py_sitescriptdir}/%{name}
-%{_infodir}/*.info*
+%{_infodir}/polgen.info*
